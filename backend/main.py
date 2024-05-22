@@ -10,22 +10,24 @@ def get_contacts():
 
 @app.route("/create_contacts", methods=["POST"])
 def create_contact():
-    
-    first_name=request.json["firstName"]
-    last_name=request.json["lastName"]
-    email=request.json["email"]
-
-    if not first_name or not last_name or not email:
-        return jsonify({"message": "All fields are required"}), 400
-
-    new_contact = Contact(first_name=first_name, last_name=last_name, email=email)
     try:
+        first_name=request.json["firstName"]
+        last_name=request.json["lastName"]
+        email=request.json["email"]
+
+        if not first_name or not last_name or not email:
+            return jsonify({"message": "All fields are required"}), 400
+
+        new_contact = Contact(first_name=first_name, last_name=last_name, email=email)
+        
         db.session.add(new_contact)
         db.session.commit()
+        return jsonify({"message": "Contact created successfully"}), 201
+
     except Exception as e:
         return jsonify({"message": str(e)}), 400
     
-    return jsonify({"message": "Contact created successfully"}), 201
+
 
 
 @app.route("/update_contact/<int:id>", methods=["PUT"])
