@@ -28,7 +28,6 @@ function App() {
     console.log(data.contacts)
 }
 
-
 console.log(contacts);
 return <> <ContactList contacts={contacts} />
 
@@ -37,4 +36,3 @@ return <> <ContactList contacts={contacts} />
 </>
 
 
-export default App
