@@ -27,14 +27,16 @@ function App() {
     setContacts(data.contacts)
     console.log(data.contacts)
 }
-}
 
-console.log(contacts);
-return (
-  <>
-    <ContactList contacts={contacts} />
-    {isModalOpen && <div className="modal">
-      <ContactForm />
-    </div>}
-  </>
-);
+
+  console.log(contacts);
+  return (
+    <>
+      <ContactList contacts={contacts} />
+      {isModalOpen && <div className="modal">
+        <ContactForm />
+      </div>}
+    </>
+  );
+
+}
