@@ -27,7 +27,7 @@ const ContactForm = ({}) => {
             const message = await response.json();
             alert(data.message);
         }
-        else{
+        else {
             alert("Contact created successfully");
         }
     }
